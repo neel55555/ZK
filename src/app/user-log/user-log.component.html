@@ -43,17 +43,17 @@
                 <table class="table table-hover">
                   <tr>
                     <th>ID</th>
-                    <th>User</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Reason</th>
+                    <th>Name</th>
+                    <th>Badgenumber</th>
+                    <th>In Time</th>
+                    <th>Out Time</th>
                   </tr>
-                  <tr routerLink="/user">
-                    <td>1</td>
-                    <td>Lorem ipsum</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <tr *ngFor = "let userLog of userLogs">
+                    <td>{{userLog.user_id}}</td>
+                    <td>{{userLog.name}}</td>
+                    <td>{{userLog.badgenumber}}</td>
+                    <td>{{userLog.in_time}}</td>
+                    <td>{{userLog.out_time}}</td>
                   </tr>
                 </table>
               </div>

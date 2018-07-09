@@ -10,8 +10,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(): Observable<UserInterface[]>
+  getUser(): Observable<any>
   {
-    return this.http.get<UserInterface[]>('http://localhost/api/user');
+    return this.http.get<any>('http://localhost/api/user');
   }
 }

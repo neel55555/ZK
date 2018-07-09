@@ -8,12 +8,12 @@ import { UserLogService } from '../user-log.service';
 })
 export class UserLogComponent implements OnInit {
 
-  private userLog;
+  userLogs = [];
+
   constructor(private _userLogService: UserLogService) { }
 
   ngOnInit() {
-    this._userLogService.getUserLog().subscribe(data => this.userLog = data);
-    console.log(this.userLog);
+    this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
   }
 
 }

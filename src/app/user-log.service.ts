@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { UserLogInterface } from './userLogInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLogService{
+
   constructor(private http: HttpClient) {}
-  getUserLog(): any
+
+  getUserLog(): Observable<any>
   {
-    return this.http.get('http://localhost/api/user-log?date=6-6-2018');
+    return this.http.get<any>('http://localhost/api/user-log?date=6-6-2018');
   }
 }
 
