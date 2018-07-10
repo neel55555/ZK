@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLogService } from '../user-log.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-user-log',
@@ -14,6 +15,9 @@ export class UserLogComponent implements OnInit {
 
   ngOnInit() {
     this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
+    $(document).ready(function(){
+      $('.date').datepicker();
+    })
   }
 
 }

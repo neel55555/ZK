@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css",
               "./ui-assets/dist/css/adminlte.min.css",
-              "./node_modules/font-awesome/css/font-awesome.min.css"
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./ui-assets/dist/js/plugins/date-picker/css/bootstrap-datepicker3.min.css"
             ],
             "scripts": [
               "./ui-assets/plugins/jquery/jquery.min.js",
@@ -33,8 +34,10 @@
               "./ui-assets/plugins/bootstrap/js/bootstrap.bundle.min.js",
               "./ui-assets/plugins/slimScroll/jquery.slimscroll.min.js",
               "./ui-assets/plugins/fastclick/fastclick.js",
+              "./ui-assets/dist/js/plugins/date-picker/js/bootstrap-datepicker.min.js",
               "./ui-assets/dist/js/adminlte.js",
-              "./ui-assets/dist/js/demo.js"
+              "./ui-assets/dist/js/demo.js",
+              "./ui-assets/dist/js/script.js"
             ]
           },
           "configurations": {
