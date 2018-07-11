@@ -31,10 +31,10 @@
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     
-                    <input type="text" name="table_search" class="date form-control float-right" placeholder="Date">
+                    <input type="text" name="table_search" bsDatepicker [(ngModel)]="date" (bsValueChange)="dateValueOnChange()" #dpMDY="bsDatepicker" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" class="form-control float-right" placeholder="Date">
 
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                      <button type="submit" (click)="dpMDY.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                     </div>
                   </div>
                 </div>

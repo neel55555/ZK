@@ -10,14 +10,21 @@ import * as $ from 'jquery';
 export class UserLogComponent implements OnInit {
 
   userLogs = [];
+  date = '';
 
   constructor(private _userLogService: UserLogService) { }
-
+  
   ngOnInit() {
     this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
-    $(document).ready(function(){
-      $('.date').datepicker();
-    })
+  }
+
+  dateValueOnChange() {
+    setTimeout(()=>{
+      console.log(this.date);
+      this._userLogService.selectedDate = this.date;
+      this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
+    }, 300);
+    
   }
 
 }
