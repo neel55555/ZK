@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Employees Attendance</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -43,16 +43,16 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
+                    <th>SL No.</th>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Badgenumber</th>
                     <th>In Time</th>
                     <th>Out Time</th>
                   </tr>
-                  <tr *ngFor = "let userLog of userLogs">
-                    <td>{{userLog.user_id}}</td>
-                    <td>{{userLog.name}}</td>
+                  <tr *ngFor = "let userLog of userLogs; index as SLN">
+                    <td>{{SLN+1}}</td>
                     <td>{{userLog.badgenumber}}</td>
+                    <td>{{userLog.name}}</td>
                     <td>{{userLog.in_time}}</td>
                     <td>{{userLog.out_time}}</td>
                   </tr>

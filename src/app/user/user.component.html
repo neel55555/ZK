@@ -26,7 +26,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Responsive Hover Table</h3>
+              <h3 class="card-title">Table</h3>
 
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -42,18 +42,16 @@
             <div class="card-body table-responsive p-0">
               <table class="table table-hover">
                 <tr>
+                  <th>SL No.</th>
                   <th>ID</th>
                   <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>Department</th>
                 </tr>
-                <tr *ngFor="let user of users">
+                <tr *ngFor="let user of users; index as SLN">
+                  <td>{{SLN+1}}</td>
                   <td>{{user.badgenumber}}</td>
                   <td>{{user.name}}</td>
-                  <td>11-7-2014</td>
-                  <td><span class="tag tag-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>Unknown</td>
                 </tr>
               </table>
             </div>
