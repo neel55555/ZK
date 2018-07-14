@@ -10,7 +10,9 @@ import * as $ from 'jquery';
 export class UserLogComponent implements OnInit {
 
   userLogs = [];
-  date = '';
+  dateTime = new Date();
+  date: string = this.dateTime.getDate()+'-'+(this.dateTime.getMonth()+1)+'-'+this.dateTime.getFullYear();
+  department = "0";
 
   constructor(private _userLogService: UserLogService) { }
   
