@@ -35,10 +35,7 @@
                       <div class="input-group input-group-sm">
                         <select [(ngModel)]="department" name="department" class="form-control">
                             <option value="0">Select department</option>
-                          <option value="1">Information And Technology</option>
-                          <option value="2">Commercial</option>
-                          <option value="3">Accounts</option>
-                          <option value="4">Design</option>
+                          <option *ngFor="let department of departments" value="1">{{department.name}}</option>
                         </select>
                       </div>
                     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLogService } from '../user-log.service';
+import { DepartmentsService } from '../departments.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -12,12 +13,13 @@ export class UserLogComponent implements OnInit {
   userLogs = [];
   dateTime = new Date();
   date: string = this.dateTime.getDate()+'-'+(this.dateTime.getMonth()+1)+'-'+this.dateTime.getFullYear();
-  department = "0";
+  departments = [];
 
-  constructor(private _userLogService: UserLogService) { }
+  constructor(private _userLogService: UserLogService, private _departmentsService: DepartmentsService) { }
   
   ngOnInit() {
     this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
+    this._departmentsService.getDepartments().subscribe(data => this.departments = data);
   }
 
   dateValueOnChange() {
@@ -26,6 +28,8 @@ export class UserLogComponent implements OnInit {
       this._userLogService.selectedDate = this.date;
       this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
     }, 300);
+
+    
     
   }
 
