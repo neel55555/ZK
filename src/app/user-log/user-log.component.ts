@@ -14,6 +14,7 @@ export class UserLogComponent implements OnInit {
   dateTime = new Date();
   date: string = this.dateTime.getDate()+'-'+(this.dateTime.getMonth()+1)+'-'+this.dateTime.getFullYear();
   departments = [];
+  department = 0;
 
   constructor(private _userLogService: UserLogService, private _departmentsService: DepartmentsService) { }
   
@@ -28,9 +29,12 @@ export class UserLogComponent implements OnInit {
       this._userLogService.selectedDate = this.date;
       this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
     }, 300);
+  }
 
-    
-    
+  departmentValueOnChange() {
+    console.log('change', this.department);
+    this._userLogService.selectedDepartment = this.department;
+    this._userLogService.getUserLog().subscribe(data => this.userLogs = data);
   }
 
 }

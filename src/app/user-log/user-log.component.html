@@ -33,9 +33,9 @@
 
                     <div class="form-group mb-2">
                       <div class="input-group input-group-sm">
-                        <select [(ngModel)]="department" name="department" class="form-control">
+                        <select [(ngModel)]="department" (change)="departmentValueOnChange()" name="department" class="form-control">
                             <option value="0">Select department</option>
-                          <option *ngFor="let department of departments" value="1">{{department.name}}</option>
+                          <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
                         </select>
                       </div>
                     </div>

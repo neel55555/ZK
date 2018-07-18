@@ -9,12 +9,13 @@ import { UserLogInterface } from './userLogInterface';
 export class UserLogService{
 
   selectedDate = '10-7-2018';
+  selectedDepartment = 0;
 
   constructor(private http: HttpClient) {}
 
   getUserLog(): Observable<any>
   {
-    return this.http.get<any>('http://localhost/api/user-log?date='+this.selectedDate);
+    return this.http.get<any>('http://localhost/api/user-log?date='+this.selectedDate+'&department='+this.selectedDepartment);
   }
 }
 
