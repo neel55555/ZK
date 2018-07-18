@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NavbarComponent,
     FooterComponent,
     UserComponent,
-    SingleUserComponent
+    SingleUserComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
