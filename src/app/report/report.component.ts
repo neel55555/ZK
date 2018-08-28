@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
 
+  dateTime = new Date();
+  date: string = this.dateTime.getDate()+'-'+(this.dateTime.getMonth()+1)+'-'+this.dateTime.getFullYear();
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }
