@@ -20,7 +20,6 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      
       <!-- /.row -->
       <div class="row">
         <div class="col-12">
@@ -32,23 +31,25 @@
                 <form class="form-inline">
                   <div class="form-group mx-sm-2 mb-2">
                     <div class="input-group input-group-sm">
-                      <select name="department" class="form-control">
-                          <option value="0">Select department</option>
-                          <option value="">Name</option>
+                      
+                      <select [(ngModel)]="department" (change)="onDepartmentChange()" name="department" class="form-control">
+                        <option value="0">Select Department</option>
+                        <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group mx-sm-2 mb-2">
                     <div class="input-group input-group-sm">
-                      <select name="department" class="form-control">
-                          <option value="0">Select department</option>
-                          <option value="">Name</option>
+                      <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
+                          <option value="0">Select Employee</option>
+                          <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
                       </select>
+                      
                     </div>
                   </div>
                   <div class="form-group mx-sm-2 mb-2">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="date" bsDatepicker [(ngModel)]="date" (bsValueChange)="dateValueOnChange()" #dpMDY="bsDatepicker" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" class="form-control float-right" placeholder="Date">
+                      <input type="text" name="date" bsDatepicker [(ngModel)]="date" (bsValueChange)="dateValueOnChange()" #dpMDY="bsDatepicker" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" class="form-control float-right" placeholder="Date" autocomplete="off">
 
                       <div class="input-group-append">
                         <button type="submit" (click)="dpMDY.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
@@ -70,51 +71,16 @@
                   <th>Out time</th>
                   <th>Status</th>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr *ngFor="let report of reports; index as SLN">
+                  <td>{{SLN+1}}</td>
                   <td>01-01-1900</td>
-                  <td>Lorem ipsum</td>
-                  <td>Department</td>
-                  <td>0:00AM</td>
-                  <td>0:00PM</td>
+                  <td>{{report.name}}</td>
+                  <td>{{report.department_name}}</td>
+                  <td>{{report.in_time}}</td>
+                  <td>{{report.out_time}}</td>
                   <td><span class="badge badge-success">Normal</span></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>02-01-1900</td>
-                  <td>Lorem ipsum</td>
-                  <td>Department</td>
-                  <td>0:00AM</td>
-                  <td>0:00PM</td>
-                  <td><span class="badge badge-danger">Late</span></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>03-01-1900</td>
-                  <td>Lorem ipsum</td>
-                  <td>Department</td>
-                  <td>0:00AM</td>
-                  <td>0:00PM</td>
-                  <td><span class="badge badge-success">Normal</span></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>04-01-1900</td>
-                  <td>Lorem ipsum</td>
-                  <td>Department</td>
-                  <td>0:00AM</td>
-                  <td>0:00PM</td>
-                  <td><span class="badge badge-warning">Early</span></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>05-01-1900</td>
-                  <td>Lorem ipsum</td>
-                  <td>Department</td>
-                  <td>0:00AM</td>
-                  <td>0:00PM</td>
-                  <td><span class="badge badge-success">Normal</span></td>
-                </tr>
+                
               </table>
             </div>
             <!-- /.card-body -->
