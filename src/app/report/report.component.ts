@@ -11,11 +11,12 @@ import { ReportService } from '../report.service';
 export class ReportComponent implements OnInit {
 
   dateTime = new Date();
-  date: string = this.dateTime.getDate()+'-'+(this.dateTime.getMonth()+1)+'-'+this.dateTime.getFullYear();
+  date = new Date();
   departments = [];
   department = 0;
   users = [];
   user = 0;
+  userName = 'Select a user';
   reports = [];
 
   constructor(private _departmentsService: DepartmentsService, private _userService: UserService, private _reportService: ReportService) { }
@@ -25,20 +26,30 @@ export class ReportComponent implements OnInit {
   }
 
   onDepartmentChange() {
+    this.user = 0;
     this._userService.department = this.department;
     this._userService.getUserByDept().subscribe(data => this.users = data);
   }
 
   onUserChange() {
-    console.log(this.user);
-    this._reportService.selectedDate = this.date;
+    var currentClass = this;
+    var found = this.users.find(function(element){
+      return element.badgenumber == currentClass.user;
+    });
+    this.userName = found.name;
+    this._reportService.selectedDate = (this.date.getMonth()+1)+'-'+this.date.getFullYear();
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;
     this._reportService.getReport().subscribe(data => this.reports = data);
   }
 
   dateValueOnChange() {
-
+    setTimeout(()=>{
+    this._reportService.selectedDate = (this.date.getMonth()+1)+'-'+this.date.getFullYear();
+    this._reportService.selectedDepartment = this.department;
+    this._reportService.selectedUser = this.user;
+    this._reportService.getReport().subscribe(data => this.reports = data);
+    },300);
   }
 
 }
