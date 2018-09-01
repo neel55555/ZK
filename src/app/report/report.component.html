@@ -63,7 +63,7 @@
             <div class="card-body table-responsive p-0">
               <table class="table table-hover">
                 <tr>
-                  <th>S.No</th>
+                  
                   <th>Date</th>
                   <th>Name</th>
                   <th>Department</th>
@@ -72,13 +72,13 @@
                   <th>Status</th>
                 </tr>
                 <tr *ngFor="let report of reports; index as SLN">
-                  <td>{{SLN+1}}</td>
-                  <td>01-01-1900</td>
+                  
+                  <td>{{report.date}}</td>
                   <td>{{report.name}}</td>
                   <td>{{report.department_name}}</td>
                   <td>{{report.in_time}}</td>
                   <td>{{report.out_time}}</td>
-                  <td><span class="badge badge-success">Normal</span></td>
+                  <td><span class="badge badge-success">{{report.status}}</span></td>
                 </tr>
                 
               </table>
