@@ -43,7 +43,7 @@ export class ReportComponent implements OnInit {
     this._reportService.getReport().subscribe(data => this.reports = data);
   }
 
-  dateValueOnChange() {
+  onDateValueChange() {
     setTimeout(()=>{
     this._reportService.selectedDate = (this.date.getMonth()+1)+'-'+this.date.getFullYear();
     this._reportService.selectedDepartment = this.department;

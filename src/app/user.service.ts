@@ -14,7 +14,7 @@ export class UserService {
 
   getUser(): Observable<any>
   {
-    return this.http.get<any>('http://localhost/api/user');
+    return this.http.get<any>('/api/user');
   }
 
   getUserByDept(): Observable<any>
@@ -22,6 +22,6 @@ export class UserService {
     var queryString = $.param({
       "department": this.department
     });
-    return this.http.get<any>('http://localhost/api/user?'+queryString);
+    return this.http.get<any>('http://192.168.1.98/api/user?'+queryString);
   }
 }

@@ -21,7 +21,7 @@ export class ReportService {
       "uid": this.selectedUser,
       "department": this.selectedDepartment
     });
-    return this.http.get<any>('http://localhost/api/user-log?'+queryString);
+    return this.http.get<any>('http://192.168.1.98/api/user-log?'+queryString);
   }
   
 }

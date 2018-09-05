@@ -11,6 +11,6 @@ export class DepartmentsService {
 
   getDepartments(): Observable<any>
   {
-    return this.http.get<any>('http://localhost/api/departments');
+    return this.http.get<any>('http://192.168.1.98/api/departments');
   }
 }
