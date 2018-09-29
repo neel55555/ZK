@@ -29,6 +29,10 @@ export class ReportComponent implements OnInit {
     this.user = 0;
     this._userService.department = this.department;
     this._userService.getUserByDept().subscribe(data => this.users = data);
+    this._reportService.selectedDate = (this.date.getMonth()+1)+'-'+this.date.getFullYear();
+    this._reportService.selectedDepartment = this.department;
+    this._reportService.selectedUser = this.user;
+    this._reportService.getReport().subscribe(data => this.reports = data);
   }
 
   onUserChange() {
@@ -42,7 +46,7 @@ export class ReportComponent implements OnInit {
     this._reportService.selectedUser = this.user;
     this._reportService.getReport().subscribe(data => this.reports = data);
   }
-
+  
   onDateValueChange() {
     setTimeout(()=>{
     this._reportService.selectedDate = (this.date.getMonth()+1)+'-'+this.date.getFullYear();
