@@ -505,6 +505,10 @@ var ReportComponent = /** @class */ (function () {
         this.user = 0;
         this._userService.department = this.department;
         this._userService.getUserByDept().subscribe(function (data) { return _this.users = data; });
+        this._reportService.selectedDate = (this.date.getMonth() + 1) + '-' + this.date.getFullYear();
+        this._reportService.selectedDepartment = this.department;
+        this._reportService.selectedUser = this.user;
+        this._reportService.getReport().subscribe(function (data) { return _this.reports = data; });
     };
     ReportComponent.prototype.onUserChange = function () {
         var _this = this;
