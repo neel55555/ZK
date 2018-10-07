@@ -29,33 +29,36 @@
 
               <div class="card-tools">
                 <form class="form-inline">
-                  <div class="form-group mx-sm-2 mb-2">
-                    <div class="input-group input-group-sm">
-                      
-                      <select [(ngModel)]="department" (change)="onDepartmentChange()" name="department" class="form-control">
-                        <option value="0">Select Department</option>
-                        <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group mx-sm-2 mb-2">
-                    <div class="input-group input-group-sm">
-                      <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
-                          <option value="0">Select Employee</option>
-                          <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
-                      </select>
-                      
-                    </div>
-                  </div>
-                  <div class="form-group mx-sm-2 mb-2">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="date" bsDatepicker [(ngModel)]="date" (bsValueChange)="onDateValueChange()" #dpMDY="bsDatepicker" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" class="form-control float-right" placeholder="Date" autocomplete="off">
 
-                      <div class="input-group-append">
-                        <button type="submit" (click)="dpMDY.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    <div class="form-group mx-sm-2 mb-2">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                          <input type="text" name="date" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="date" (bsValueChange)="onDateValueChange()"  class="form-control float-right" placeholder="Date" autocomplete="off">
+    
+                          <div class="input-group-append">
+                            <button type="submit" (click)="dpMDY.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mx-sm-2 mb-2">
+                      <div class="input-group input-group-sm">
+                        
+                        <select [(ngModel)]="department" (change)="onDepartmentChange()" name="department" class="form-control">
+                          <option value="0">Select Department</option>
+                          <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
+                        </select>
                       </div>
                     </div>
-                  </div>
+
+                    <div class="form-group mx-sm-2 mb-2">
+                      <div class="input-group input-group-sm">
+                        <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
+                            <option value="0">Select Employee</option>
+                            <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  
                 </form>
               </div>
             </div>
