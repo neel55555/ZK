@@ -19,6 +19,7 @@ export class ReportComponent implements OnInit {
   user = 0;
   userName = 'Select a user';
   reports = [];
+  maxDate = new Date();
 
   constructor(private _departmentsService: DepartmentsService, private _userService: UserService, private _reportService: ReportService) { }
 
@@ -28,8 +29,6 @@ export class ReportComponent implements OnInit {
 
   onDepartmentChange() {
     this.user = 0;
-    
-
     this._userService.department = this.department;
     this._userService.getUserByDept().subscribe(data => this.users = data);
     this._reportService.selectedDate = this.dateRange;

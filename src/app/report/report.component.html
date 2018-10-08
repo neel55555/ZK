@@ -25,23 +25,23 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">{{userName}}</h3>
+              <h3 class="card-title">Attendance Table</h3>
 
               <div class="card-tools">
                 <form class="form-inline">
 
                     <div class="form-group mx-sm-2 mb-2">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                          <input type="text" name="date" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="date" (bsValueChange)="onDateValueChange()"  class="form-control float-right" placeholder="Date" autocomplete="off">
+                        <div class="input-group input-group-sm" style="width: 205px;">
+                          <input readonly type="text" name="date" [maxDate]="maxDate" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="date" (bsValueChange)="onDateValueChange()" [bsConfig]="{ rangeInputFormat: 'DD/MM/YYYY' }"  class="form-control float-right" placeholder="Date" autocomplete="off">
     
                           <div class="input-group-append">
-                            <button type="submit" (click)="dpMDY.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                            <button type="submit" (click)="drp.toggle()" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                           </div>
                         </div>
                     </div>
 
                     <div class="form-group mx-sm-2 mb-2">
-                      <div class="input-group input-group-sm">
+                      <div class="input-group input-group-sm" style="width: 205px;">
                         
                         <select [(ngModel)]="department" (change)="onDepartmentChange()" name="department" class="form-control">
                           <option value="0">Select Department</option>
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="form-group mx-sm-2 mb-2">
-                      <div class="input-group input-group-sm">
+                      <div class="input-group input-group-sm" style="width: 205px;">
                         <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
                             <option value="0">Select Employee</option>
                             <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
@@ -81,7 +81,14 @@
                   <td>{{report.department_name}}</td>
                   <td>{{report.in_time}}</td>
                   <td>{{report.out_time}}</td>
-                  <td><span class="badge badge-success">{{report.status}}</span></td>
+                  <td>
+                    <span class="badge badge-success" *ngIf="(report.status=='NORMAL')">{{report.status}}</span>
+                    <span class="badge badge-danger" *ngIf="(report.status=='ABSENT')">{{report.status}}</span>
+                    <span class="badge badge-warning" *ngIf="report.status=='LATE'">{{report.status}}</span>
+                    <span class="badge badge-warning" *ngIf="report.status=='LATE AND EARLY'">{{report.status}}</span>
+                    <span class="badge badge-warning" *ngIf="report.status=='EARLY'">{{report.status}}</span>
+                    <span class="badge badge-success" *ngIf="report.status=='WEEKEND'">{{report.status}}</span>
+                  </td>
                 </tr>
                 
               </table>
