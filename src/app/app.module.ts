@@ -14,6 +14,8 @@ import { UserComponent } from './user/user.component';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ReportComponent } from './report/report.component';
+import { DeviceComponent } from './device/device.component';
+import { GlobalService } from './global.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ReportComponent } from './report/report.component';
     FooterComponent,
     UserComponent,
     SingleUserComponent,
-    ReportComponent
+    ReportComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { ReportComponent } from './report/report.component';
     BsDatepickerModule.forRoot(),
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
