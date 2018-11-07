@@ -54,7 +54,7 @@
                       <div class="input-group input-group-sm" style="width: 205px;">
                         <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
                             <option value="0">All Employees</option>
-                            <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
+                            <option *ngFor="let user of users" value="{{user.id}}">{{user.name}}</option>
                         </select>
                       </div>
                     </div>

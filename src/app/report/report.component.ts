@@ -44,7 +44,7 @@ export class ReportComponent implements OnInit {
     
     if ( this.user != 0 ) {
       var found = this.users.find(function(element){
-        return element.badgenumber == currentClass.user;
+        return element.id == currentClass.user;
       });
       this.userName = found.name;
     };
