@@ -34,6 +34,9 @@
               "./ui-assets/plugins/bootstrap/js/bootstrap.bundle.min.js",
               "./ui-assets/plugins/slimScroll/jquery.slimscroll.min.js",
               "./ui-assets/plugins/fastclick/fastclick.js",
+              "./ui-assets/plugins/input-mask/jquery.inputmask.js",
+              "./ui-assets/plugins/input-mask/jquery.inputmask.date.extensions.js",
+              "./ui-assets/plugins/input-mask/jquery.inputmask.extensions.js",
               "./ui-assets/dist/js/adminlte.js",
               "./ui-assets/dist/js/demo.js",
               "./ui-assets/dist/js/script.js"

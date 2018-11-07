@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GlobalService } from './global.service';
 
 @Injectable({
@@ -10,8 +10,14 @@ export class DeviceService {
 
   constructor(private http: HttpClient, private global:GlobalService) { }
 
-  public getDevice(): Observable<any>
+  public getDevices(): Observable<any>
   {
-    return this.http.get<any>('/api/device');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept':  'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.get<any>(this.global.domain + '/api/device');
   }
 }

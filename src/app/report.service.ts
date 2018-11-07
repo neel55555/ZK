@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 import { GlobalService } from './global.service';
@@ -9,7 +9,7 @@ import { GlobalService } from './global.service';
 })
 export class ReportService {
 
-  selectedDate = '10-7-2018';
+  selectedDate = '';
   selectedDepartment = 0;
   selectedUser = 0;
 
@@ -17,12 +17,20 @@ export class ReportService {
 
   getReport(): Observable<any>
   {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept':  'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+
     var queryString = $.param({
       "date": this.selectedDate,
       "uid": this.selectedUser,
       "department": this.selectedDepartment
     });
-    return this.http.get<any>(this.global.domain + '/api/user-log?'+queryString);
+    return this.http.get<any>(this.global.domain + '/api/log?'+queryString);
   }
   
 }

@@ -15,7 +15,7 @@ export class UserService {
 
   getUser(): Observable<any>
   {
-    return this.http.get<any>('/api/user');
+    return this.http.get<any>(this.global.domain + '/api/user');
   }
 
   getUserByDept(): Observable<any>

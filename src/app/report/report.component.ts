@@ -49,6 +49,8 @@ export class ReportComponent implements OnInit {
       this.userName = found.name;
     };
 
+    console.log(this.user);
+
     this._reportService.selectedDate = this.dateRange;
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;
@@ -57,16 +59,17 @@ export class ReportComponent implements OnInit {
   
   onDateValueChange() {
     setTimeout(()=>{
-    console.log("change detected");
-    var date1 = new Date(this.date[0]);
-    var date2 = new Date(this.date[1]);
-    date1.setMonth(date1.getMonth()+1);
-    date2.setMonth(date2.getMonth()+1);
-
-    var dateRangeFrom = date1.getDate() +'-'+ date1.getMonth() +'-'+ date1.getFullYear();
-    var dateRangeTo = date2.getDate() +'-'+ date2.getMonth() +'-'+ date2.getFullYear();
-    this.dateRange = dateRangeFrom+ '.' +dateRangeTo;
     
+    var date1 = this.date[0];
+    var date2 = this.date[1];
+
+    var month1 = date1.getMonth()+1;
+    var month2 = date2.getMonth()+1;
+
+    var dateRangeFrom = date1.getDate() +'-'+ month1 +'-'+ date1.getFullYear();
+    var dateRangeTo = date2.getDate() +'-'+ month2 +'-'+ date2.getFullYear();
+    this.dateRange = dateRangeFrom+ '.' +dateRangeTo;
+
     this._reportService.selectedDate = this.dateRange;
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;

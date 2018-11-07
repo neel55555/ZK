@@ -39,21 +39,42 @@
                   <th>POST</th>
                   <th>Serial Number</th>
                 </tr>
-                <tr>
+                <tr *ngFor="let device of devices">
                   <td>1</td>
-                  <td>192.168.1.205</td>
-                  <td>4370</td>
-                  <td>XXXXXXX</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>192.168.1.206</td>
-                  <td>4370</td>
-                  <td>YYYYYYYY</td>
+                  <td>{{device.ip}}</td>
+                  <td>{{device.port}}</td>
+                  <td>{{device.serial_number}}</td>
                 </tr>
               </table>
             </div>
             <!-- /.card-body -->
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="form-group">
+                  <label>IP mask:</label>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-laptop"></i></span>
+                    </div>
+                    <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+                  </div>
+                  <!-- /.input group -->
+              </div>
+              <div class="form-group">
+                <label>Port:</label>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-laptop"></i></span>
+                  </div>
+                  <input type="text" class="form-control" data-inputmask="'alias': 'digit'" data-mask>
+                </div>
+                <!-- /.input group -->
+              </div>
+            </div>
           </div>
           <!-- /.card -->
         </div>

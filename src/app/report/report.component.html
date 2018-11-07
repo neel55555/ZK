@@ -44,7 +44,7 @@
                       <div class="input-group input-group-sm" style="width: 205px;">
                         
                         <select [(ngModel)]="department" (change)="onDepartmentChange()" name="department" class="form-control">
-                          <option value="0">Select Department</option>
+                          <option value="0">All Departments</option>
                           <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
                         </select>
                       </div>
@@ -53,7 +53,7 @@
                     <div class="form-group mx-sm-2 mb-2">
                       <div class="input-group input-group-sm" style="width: 205px;">
                         <select name="user" [(ngModel)]="user" class="form-control" (change)="onUserChange()">
-                            <option value="0">Select Employee</option>
+                            <option value="0">All Employees</option>
                             <option *ngFor="let user of users" value="{{user.badgenumber}}">{{user.name}}</option>
                         </select>
                       </div>
