@@ -20,4 +20,9 @@ export class DeviceService {
     };
     return this.http.get<any>(this.global.domain + '/api/device');
   }
+
+  public getDeviceData(): Observable<any>
+  {
+    return this.http.get<any>(this.global.domain + '/api/device/get-data');
+  }
 }

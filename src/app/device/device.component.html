@@ -26,7 +26,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Devices List</h3>
+              <h3 class="card-title">Devices</h3>
 
               
             </div>
@@ -47,14 +47,20 @@
                 </tr>
               </table>
             </div>
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-md btn-success" style="width: 250px"><div style="margin:0px auto" class="loader" ></div></button>
+              </div>
+            </div>
             <!-- /.card-body -->
           </div>
 
           <div class="card">
             <div class="card-body">
-              <div class="form-group">
-                  <label>IP mask:</label>
+              <form class="">
 
+                <div class="form-group">
+                  <div>IP:</div>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-laptop"></i></span>
@@ -62,18 +68,19 @@
                     <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
                   </div>
                   <!-- /.input group -->
-              </div>
-              <div class="form-group">
-                <label>Port:</label>
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-laptop"></i></span>
-                  </div>
-                  <input type="text" class="form-control" data-inputmask="'alias': 'digit'" data-mask>
                 </div>
-                <!-- /.input group -->
-              </div>
+                  
+                <div class="form-group">
+                  <div>PORT:</div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-laptop"></i></span>
+                    </div>
+                    <input type="text" class="form-control" data-inputmask="'alias': 'digit'" data-mask>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+              </form>
             </div>
           </div>
           <!-- /.card -->

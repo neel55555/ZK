@@ -9,6 +9,7 @@ import { DeviceService } from '../device.service';
 export class DeviceComponent implements OnInit {
 
   public devices;
+  public status;
 
   constructor(private _deviceService:DeviceService) { }
 
@@ -16,6 +17,9 @@ export class DeviceComponent implements OnInit {
     this._deviceService.getDevices().subscribe(data => this.devices = data);
   }
 
-
+  getData()
+  {
+    this._deviceService.getDeviceData().subscribe(data => this.status = data.status);
+  }
 
 }
