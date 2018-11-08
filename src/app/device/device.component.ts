@@ -10,6 +10,10 @@ export class DeviceComponent implements OnInit {
 
   public devices;
   public status;
+  public isLoaderHidden = true;
+  public isCheckmarkHidden = true;
+  public buttonInnerContent = "GET DATA";
+  public isDataProcessing = false;
 
   constructor(private _deviceService:DeviceService) { }
 
@@ -19,7 +23,25 @@ export class DeviceComponent implements OnInit {
 
   getData()
   {
-    this._deviceService.getDeviceData().subscribe(data => this.status = data.status);
+    if(this.isDataProcessing){
+      return false;
+    };
+    this.isDataProcessing = true;
+    this.isLoaderHidden = false;
+    this._deviceService.getDeviceData().subscribe(data => 
+      {
+        if(data.status == 'SUCCESS') {
+          this.buttonInnerContent = '<i class="fa fa-check fa-2x"></i>';
+          this.isLoaderHidden = true;
+          setTimeout(()=>{
+            this.buttonInnerContent = "GET DATA";
+            this.isDataProcessing = false;
+          },3000);
+          
+        };
+      }
+    );
   }
+
 
 }

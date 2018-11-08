@@ -49,7 +49,11 @@
             </div>
             <div class="card">
               <div class="card-body">
-                <button class="btn btn-md btn-success" style="width: 250px"><div style="margin:0px auto" class="loader" ></div></button>
+                
+                <button class="btn btn-md btn-success btn-250" (click)=getData()>
+                  <div [ngClass]="{'loader': true, 'is-hidden': isLoaderHidden}" ></div>
+                  <span [ngClass] = "{'is-hidden': !isLoaderHidden}" [innerHTML]="buttonInnerContent"></span>
+                </button>
               </div>
             </div>
             <!-- /.card-body -->
