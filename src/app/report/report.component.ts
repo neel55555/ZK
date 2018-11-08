@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
     this._reportService.selectedDate = this.dateRange;
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;
-    this._reportService.getReport().subscribe(data => this.reports = data);
+    this._reportService.getReport().subscribe(data => this.reports = data[0]._embedded.attendance);
   }
 
   onUserChange() {
@@ -54,7 +54,7 @@ export class ReportComponent implements OnInit {
     this._reportService.selectedDate = this.dateRange;
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;
-    this._reportService.getReport().subscribe(data => this.reports = data);
+    this._reportService.getReport().subscribe(data => this.reports = data[0]._embedded.attendance);
   }
   
   onDateValueChange() {
@@ -73,7 +73,7 @@ export class ReportComponent implements OnInit {
     this._reportService.selectedDate = this.dateRange;
     this._reportService.selectedDepartment = this.department;
     this._reportService.selectedUser = this.user;
-    this._reportService.getReport().subscribe(data => this.reports = data);
+    this._reportService.getReport().subscribe(data => this.reports = data[0]._embedded.attendance);
     },300);
   }
 
