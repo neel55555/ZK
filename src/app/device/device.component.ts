@@ -28,19 +28,26 @@ export class DeviceComponent implements OnInit {
     };
     this.isDataProcessing = true;
     this.isLoaderHidden = false;
-    this._deviceService.getDeviceData().subscribe(data => 
-      {
-        if(data.status == 'SUCCESS') {
-          this.buttonInnerContent = '<i class="fa fa-check fa-2x"></i>';
-          this.isLoaderHidden = true;
-          setTimeout(()=>{
-            this.buttonInnerContent = "GET DATA";
-            this.isDataProcessing = false;
-          },3000);
-          
-        };
-      }
-    );
+
+    //BUG FIX FOR FAILED REQUEST
+    let request = setInterval(()=>{
+      this._deviceService.getDeviceData().subscribe(data => 
+        {
+          if(data.status == 'SUCCESS') {
+            clearInterval(request);
+            this.buttonInnerContent = '<i class="fa fa-check fa-2x"></i>';
+            this.isLoaderHidden = true;
+            setTimeout(()=>{
+              this.buttonInnerContent = "GET DATA";
+              this.isDataProcessing = false;
+            },3000);
+            
+          };
+        }
+      );
+    }, 1000)
+
+    
   }
 
 

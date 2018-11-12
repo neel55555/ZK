@@ -12,17 +12,15 @@ export class DeviceService {
 
   public getDevices(): Observable<any>
   {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Accept':  'application/json',
-        'Authorization': 'my-auth-token'
-      })
-    };
+    
     return this.http.get<any>(this.global.domain + '/api/device');
   }
 
   public getDeviceData(): Observable<any>
   {
-    return this.http.get<any>(this.global.domain + '/api/device/get-data');
+    let headers = new HttpHeaders({
+      'Accept': 'application/json'
+    });
+    return this.http.get<any>(this.global.domain + '/api/device/get-data', {"headers": headers});
   }
 }

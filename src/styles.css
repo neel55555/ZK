@@ -12,6 +12,10 @@
   height: 40px;
 }
 
+.btn-200{
+  width: 250px;
+}
+
 .loader,
 .loader:after {
   margin:0px auto;
